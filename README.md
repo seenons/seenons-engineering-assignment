@@ -146,12 +146,9 @@ understanding and ownership of the result. The quality of your `REPORT.md` is a 
 
 Opportunities include:
 
-- Database and caching (PostgreSQL, SQLite, Redis, etc.).
-- Design patterns and architecture (clean architecture, DDD, etc.).
-- Containerization (Docker, docker-compose).
-- CI/CD pipeline.
-- Authentication / authorization.
-- Advanced frontend features (filtering, sorting, calendar picker, etc.).
+- Database and Caching.
+- Design Patterns and Architecture.
+- Understanding of modern software engineering concepts.
 
 ## Technologies Used
 
