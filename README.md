@@ -1,4 +1,4 @@
-# Seenons Backend Assignment
+# Seenons Full-Stack Assignment
 
 Hello there!
 
@@ -13,7 +13,7 @@ our platform, which are integral to our mission:
 
 These business cases form the basis of the use cases you will be implementing in this assignment.
 
-## The assignment
+## The Assignment
 
 ### General Requirements
 
@@ -21,7 +21,7 @@ For both use cases, certain validation rules apply universally:
 
 - Postal codes: Must be within the 0000 to 9999 range.
 - The application does not need to consider timezones for simplicity.
-- Waste streams: Must correspond to a predefined record in list of valid streams.
+- Waste streams: Must correspond to a predefined record in the list of valid streams.
 - Service provider: Must correspond to a predefined record in a list of service providers.
 
 ### Specific Use Case Requirements
@@ -31,20 +31,69 @@ For both use cases, certain validation rules apply universally:
 2. **Register Waste Pickup**
    The selected date must be within the service provider's scheduling constraints and waste stream availability.
 
-Notes:
+### What You Need to Build
 
-- You can use the provided code as a starting point or rebuild it however you see fit, including the domain
-  representations in case you do not agree with its current contents.
+You are tasked with building a **full-stack application** that brings these use cases to life. The repository provides
+you with the domain models, seed data, and empty use case stubs as a starting point. Everything else is up to you.
 
-## The delivery
+#### Backend
 
-- Create a **private** copy of this repository. Do not fork it.
-- Create a new readme file that explains your take on the assignment, your thought process, and any other information
-  that you believe is relevant for the review.
-- Implement the necessary changes to at least achieve the requirements.
-- Invite <tech-assignments@seenons.com> as a collaborator to your private repository.
+- **API Server** — Expose the two use cases via a REST API (Express, Fastify, NestJS, or your framework of choice).
+- **Repository Layer** — Define interfaces for data access and provide in-memory implementations (the seed data in
+  `src/domain/dataset/` is your starting point). Add any missing seed data (e.g., customers) as needed.
+- **Business Logic** — Implement the two use cases in `src/usecases/availability/` and `src/usecases/pickup/`.
+- **Validation** — Validate all inputs (postal codes, dates, entity references) before executing business logic.
+- **OpenAPI Spec (recommended)** — Document your API with an OpenAPI specification so the frontend can consume it.
+- **Tests** — Unit and integration tests covering the business logic and API endpoints.
 
-## Domain models
+#### Frontend
+
+A **Vue 3** application bootstrapped in the `frontend/` directory with Vite, TypeScript, Tailwind CSS, Pinia, and
+Vue Router pre-configured. You need to build:
+
+- **Schedule Pickup flow** — A multi-step or single-page form where the user:
+  1. Selects a waste stream
+  2. Enters their postal code and desired pickup date
+  3. Views available service providers
+  4. Confirms the pickup registration
+- **My Pickups view** — A list of registered pickups with their details.
+- **Home view** — An introduction/dashboard page.
+- **API Client** — Connect to your backend (we recommend generating a typed client from your OpenAPI spec, e.g. with
+  `openapi-typescript`).
+- **Tests** — Component or view-level tests for the frontend.
+
+You are free to extend or restructure the frontend however you see fit — the scaffold is just a starting point.
+
+## AI-Assisted Development
+
+This assignment is designed to be completed **with the help of AI tools** (ChatGPT, Claude, GitHub Copilot, Cursor,
+or any other LLM-based assistant). We want to see how you collaborate with AI as a development partner.
+
+### Why?
+
+The way software is built is changing. Engineers who can effectively leverage AI — while maintaining full understanding
+and ownership of their work — will be the most effective. This assignment gives you a chance to demonstrate that skill.
+
+### Guidance
+
+- Use AI to generate boilerplate, write tests, refactor code, debug errors, or explain patterns you're unfamiliar with.
+- Treat the AI as a **pair programmer**: review everything it produces, understand it, and modify it when needed.
+- The goal is not to produce the most code with the least effort. The goal is to **ship a well-architected, tested
+  application** while learning how to use AI effectively as a tool.
+
+### Required: REPORT.md
+
+Alongside your code, submit a `REPORT.md` file that covers:
+
+1. **Architecture decisions** — Why did you structure the backend and frontend the way you did?
+2. **AI tools used** — Which tools did you use and how?
+3. **Example prompts** — Share 3–5 prompts you gave to the AI and what they produced.
+4. **What worked well / what didn't** — Where was AI most and least helpful?
+5. **Manual vs. delegated** — What did you choose to write manually vs. delegate to AI, and why?
+6. **AI output changes** — Describe changes you made to AI-generated code and your reasoning.
+7. **Lessons learned** — What would you do differently next time?
+
+## Domain Models
 
 **Customer**: A business entity or individual that generates waste and requires collection services. They initiate the
 request for waste pickup at a specified location and time.
@@ -67,9 +116,9 @@ pickups are the logistical manifestation of this connection, representing the pl
 mutual agreement between the customer and the service provider.
 
 If you wish to read the much longer and detailed version of the domain models,
-see: <https://github.com/seenons/seenons-be-assignment/blob/main/DOMAIN.md>
+see: [DOMAIN.md](./DOMAIN.md)
 
-## What are we looking for
+## What We Are Looking For
 
 ### Implementation (required)
 
@@ -78,8 +127,9 @@ and the domain model interactions.
 
 Key aspects we will assess include:
 
-- Accuracy in meeting use cases requirements.
-- Code quality and structure.
+- Accuracy in meeting use case requirements.
+- Code quality and structure (both backend and frontend).
+- API design and frontend user experience.
 - Scalability and maintainability.
 
 ### Test Coverage (required)
@@ -87,35 +137,56 @@ Key aspects we will assess include:
 We value thorough test coverage that ensures your implementation behaves as expected.
 You might also be able to find edge cases that were not added by us.
 
+### AI Collaboration (evaluated)
+
+We will evaluate not just the final code, but your ability to effectively leverage AI as a tool while maintaining
+understanding and ownership of the result. The quality of your `REPORT.md` is a key part of this assessment.
+
 ### Bonus Points (not required but a nice to have)
-
-#### Opportunities
-
-While the core focus is on the required tasks, we encourage you to explore additional enhancements that can elevate your
-solution. This is your chance to showcase creativity and depth of knowledge in software engineering principles.
 
 Opportunities include:
 
-- Database and Caching.
-- Design Patterns and Architecture.
-- Understanding of modern software engineering concepts.
-
-These are not mandatory but are highly appreciated and can distinguish your submission. Whether through code or in your
-readme file, we look forward to seeing your ideas.
+- Database and caching (PostgreSQL, SQLite, Redis, etc.).
+- Design patterns and architecture (clean architecture, DDD, etc.).
+- Containerization (Docker, docker-compose).
+- CI/CD pipeline.
+- Authentication / authorization.
+- Advanced frontend features (filtering, sorting, calendar picker, etc.).
 
 ## Technologies Used
 
-This project is built using the following technologies:
+This project is pre-configured with the following technologies:
 
-- Node.js
-- npm
-- TypeScript
-- Jest
+- **Backend**: Node.js, TypeScript, Jest
+- **Frontend**: Vue 3, Vite, TypeScript, Tailwind CSS, Pinia, Vue Router
 
-Although experience with these technologies is not a requirement to join our team, we are looking for people who will be able to work and feel comfortable with this ecosystem, so we recommend you to use them.
+Although experience with these technologies is not a requirement to join our team, we are looking for people who will be
+able to work and feel comfortable with this ecosystem, so we recommend you to use them.
 
 If you are not familiar with them and you would rather do it in another language or stack, please let us know beforehand!
 Don't worry, we are flexible and versatile.
+
+## The Delivery
+
+1. Create a **private** copy of this repository. Do not fork it.
+2. Implement the assignment (backend + frontend + tests + REPORT.md).
+3. Include a section in your `REPORT.md` that explains your thought process and any other information relevant to the review.
+4. Invite <tech-assignments@seenons.com> as a collaborator to your private repository.
+
+## Getting Started
+
+```bash
+# Install backend dependencies
+npm install
+
+# Install frontend dependencies
+cd frontend && npm install && cd ..
+
+# Start both backend and frontend in dev mode
+npm run dev
+```
+
+The backend will start on port 3000 and the frontend on port 5173 (with API requests proxied to the backend).
 
 ## Disclaimer
 
@@ -129,7 +200,7 @@ been simplified to ensure fairness.
 > Do I have to strictly follow the provided project structure and naming conventions?
 
 No, you have the flexibility to structure your project in a way that makes sense for your solution. However, please
-ensure your readme clearly explains any significant deviations to help reviewers follow your thought process.
+ensure your report clearly explains any significant deviations to help reviewers follow your thought process.
 
 > Is it okay to implement additional features not outlined in the requirements?
 
@@ -137,11 +208,12 @@ Oh yes! We encourage innovation and exploring new ideas.
 
 > How should I handle any assumptions I need to make during the implementation?
 
-You can document assumptions in your project's readme.
+You can document assumptions in your project's `REPORT.md`.
 
 > What happens after I submit my assignment?
 
-We will review your submission and provide feedback. You can expect the review to happen within a week of submission, but it usually doesn't take that long.
+We will review your submission and provide feedback. You can expect the review to happen within a week of submission,
+but it usually doesn't take that long.
 
 > Are there any specific coding standards or practices I should follow?
 
@@ -152,9 +224,9 @@ documentation. This includes clear naming conventions, modular design, and compr
 
 Yes, third-party libraries are allowed.
 
-> Can I make this an API instead?
+> Do I have to use the provided frontend scaffold?
 
-Pick your poison! You can make it an API, a CLI, or a GUI. It's up to you.
+No — you can replace it entirely if you prefer a different setup. The scaffold is provided to save setup time.
 
 > Can I add memes and ASCII Art?
 
