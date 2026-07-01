@@ -1,8 +1,10 @@
 {
   "name": "seenons-be-assignment",
   "version": "1.0.0",
-  "description": "Seenons Backend assignment",
+  "description": "Seenons Full-Stack assignment",
   "author": "Seenons",
+  "private": true,
+  "workspaces": ["frontend"],
   "main": "dist/src/app/js",
   "scripts": {
     "prebuild": "rimraf dist",
@@ -11,7 +13,8 @@
     "lint": "eslint . --ext .ts",
     "test": "TZ=UTC npx jest --config jest.config.ts",
     "test:watch": "TZ=UTC jest --watch --verbose --maxWorkers=50%",
-    "test:debug": "TZ=UTC node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand"
+    "test:debug": "TZ=UTC node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
+    "dev": "concurrently -n be,fe -c blue,green \"echo 'Start your backend server here'\" \"npm run dev --prefix frontend\""
   },
   "keywords": [],
   "license": "ISC",
@@ -19,6 +22,7 @@
     "@types/jest": "^29.5.5",
     "@typescript-eslint/eslint-plugin": "^6.8.0",
     "@typescript-eslint/parser": "^6.8.0",
+    "concurrently": "^10.0.3",
     "eslint": "^8.51.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
