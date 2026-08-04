@@ -39,7 +39,7 @@ See: [src/domain/service_provider.ts](./src/domain/service_provider.ts)
 > A relational entry that links Service Providers with specific Waste Streams coverages.
 >
 > **Role**:
-> It is used to determine which Waste Streams are covered by a >Service Provider in a given area
+> It is used to determine which Waste Streams are covered by a Service Provider in a given area.
 >
 > **Example**: In the 'Register Waste Pickup' flow, once a customer selects a Service Provider based on available
 > dates and waste types, the system checks this provider's coverages to ensure they can service the customer's postal

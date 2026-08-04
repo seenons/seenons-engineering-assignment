@@ -131,7 +131,7 @@ and the domain model interactions.
 
 Key aspects we will assess include:
 
-- Accuracy in meeting use case requirements.
+- Accuracy in meeting the requirements of both operations.
 - Code quality and structure (both backend and frontend).
 - API design and frontend user experience.
 - Scalability and maintainability.
