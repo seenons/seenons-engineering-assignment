@@ -17,7 +17,7 @@
     "paths": {
       "@domain/*": ["src/domain/*"],
       "@tests/*": ["tests/*"],
-      "@usecases/*": ["src/usecases/*"]
+      "@services/*": ["src/services/*"]
     },
     "plugins": [
       {

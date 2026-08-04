@@ -11,20 +11,20 @@ our platform, which are integral to our mission:
 - **Registering a waste pickup**:
   Allowing our customers to schedule a waste pickup with a service provider.
 
-These business cases form the basis of the use cases you will be implementing in this assignment.
+These business cases are the two operations you will implement in this assignment.
 
 ## The Assignment
 
 ### General Requirements
 
-For both use cases, certain validation rules apply universally:
+For both operations, the same validation rules apply:
 
 - Postal codes: Must be within the 0000 to 9999 range.
 - The application does not need to consider timezones for simplicity.
 - Waste streams: Must correspond to a predefined record in the list of valid streams.
 - Service provider: Must correspond to a predefined record in a list of service providers.
 
-### Specific Use Case Requirements
+### Specific Requirements per Operation
 
 1. **Service Partners Availability**
    Ensure the date for waste pickup is not before tomorrow, accounting for a next-day service policy.
@@ -33,15 +33,19 @@ For both use cases, certain validation rules apply universally:
 
 ### What You Need to Build
 
-You are tasked with building a **full-stack application** that brings these use cases to life. The repository provides
-you with the domain models, seed data, and empty use case stubs as a starting point. Everything else is up to you.
+You are tasked with building a **full-stack application** that brings these operations to life. The repository provides
+you with the domain models, seed data, and empty service stubs as a starting point. Everything else is up to you.
 
 #### Backend
 
-- **API Server** — Expose the two use cases via a REST API (Express, Fastify, NestJS, or your framework of choice).
+- **API Server** — Expose the two operations via a REST API. We strongly recommend **NestJS**, because it is the
+  framework we use for our own backend services. Express, Fastify, or another framework of your choice is also fine.
 - **Repository Layer** — Define interfaces for data access and provide in-memory implementations (the seed data in
   `src/domain/dataset/` is your starting point). Add any missing seed data (e.g., customers) as needed.
-- **Business Logic** — Implement the two use cases in `src/usecases/availability/` and `src/usecases/pickup/`.
+- **Business Logic** — Implement the two operations. The stubs in `src/services/availability/` and
+  `src/services/pickup/` are only a starting point, so move, rename, or replace them.
+- **Input and Output Shapes** — The stubs carry no payload or response types on purpose. Design your own DTOs, and put
+  them where your structure needs them.
 - **Validation** — Validate all inputs (postal codes, dates, entity references) before executing business logic.
 - **OpenAPI Spec (recommended)** — Document your API with an OpenAPI specification so the frontend can consume it.
 - **Tests** — Unit and integration tests covering the business logic and API endpoints.
@@ -122,7 +126,7 @@ see: [DOMAIN.md](./DOMAIN.md)
 
 ### Implementation (required)
 
-Your implementation should fulfill the specified use cases, demonstrating a clear understanding of the business logic
+Your implementation should fulfill the specified operations, demonstrating a clear understanding of the business logic
 and the domain model interactions.
 
 Key aspects we will assess include:
@@ -156,6 +160,9 @@ This project is pre-configured with the following technologies:
 
 - **Backend**: Node.js, TypeScript, Jest
 - **Frontend**: Vue 3, Vite, TypeScript, Tailwind CSS, Pinia, Vue Router
+
+For the API server we strongly recommend **NestJS**. It is the framework of our own backend services, so a NestJS
+solution is the closest to our daily work. It is not pre-installed, so add it yourself if you go that way.
 
 Although experience with these technologies is not a requirement to join our team, we are looking for people who will be
 able to work and feel comfortable with this ecosystem, so we recommend you to use them.
@@ -198,6 +205,11 @@ been simplified to ensure fairness.
 
 No, you have the flexibility to structure your project in a way that makes sense for your solution. However, please
 ensure your report clearly explains any significant deviations to help reviewers follow your thought process.
+
+> Where do the request and response types belong?
+
+Wherever your structure needs them. We removed those types from the stubs on purpose, so the shape of the API contract
+and the DTO layout are your decisions to make and to explain.
 
 > Is it okay to implement additional features not outlined in the requirements?
 
