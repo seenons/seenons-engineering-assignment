@@ -10,10 +10,10 @@
 > Used to classify the waste for collection and processing, ensuring that waste is handled according to environmental
 > standards.
 >
-> **Example**: In the 'Service Partners Availability' use case, the customer selects a Waste Stream by id, and the
+> **Example**: In the 'Service Partners Availability' flow, the customer selects a Waste Stream by id, and the
 > system matches this with available Service Providers who can handle this type of waste on the requested date.
 
-See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/waste_stream.ts>
+See: [src/domain/waste_stream.ts](./src/domain/waste_stream.ts)
 
 ## Service Provider
 
@@ -26,12 +26,12 @@ See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/wast
 > streams in compliance with environmental standards and customer requirements. They are the key link between customers'
 > waste disposal needs and the sustainable treatment of waste materials.
 >
-> **Example**: In the 'Register Waste Pickup' use case, once a customer selects a Service Provider based on available
+> **Example**: In the 'Register Waste Pickup' flow, once a customer selects a Service Provider based on available
 > dates and waste types, the system checks this provider's coverages to ensure they can service the customer's postal
 > code
 > with the selected waste stream on the requested date.
 
-See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/service_provider.ts>
+See: [src/domain/service_provider.ts](./src/domain/service_provider.ts)
 
 ## Service Provider Coverage
 
@@ -39,14 +39,14 @@ See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/serv
 > A relational entry that links Service Providers with specific Waste Streams coverages.
 >
 > **Role**:
-> It is used to determine which Waste Streams are covered by a >Service Provider in a given area
+> It is used to determine which Waste Streams are covered by a Service Provider in a given area.
 >
-> **Example**: In the 'Register Waste Pickup' use case, once a customer selects a Service Provider based on available
+> **Example**: In the 'Register Waste Pickup' flow, once a customer selects a Service Provider based on available
 > dates and waste types, the system checks this provider's coverages to ensure they can service the customer's postal
 > code
 > with the selected waste stream on the requested date.
 
-See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/service_provider_coverage.ts>
+See: [src/domain/service_provider_coverage.ts](./src/domain/service_provider_coverage.ts)
 
 ## Customer
 
@@ -59,11 +59,11 @@ See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/serv
 > connect with Service Providers through the platform to ensure their waste is collected and processed appropriately,
 > playing a pivotal role in driving the demand for sustainable waste management services.
 >
-> **Example**: In the 'Register Waste Pickup' use case, the system uses the Customer's postal_code to match them with
+> **Example**: In the 'Register Waste Pickup' flow, the system uses the Customer's postal_code to match them with
 > Service Providers that cover their area for the specified waste stream. This ensures that the waste pickup request is
 > directed to providers capable of servicing the customer's location on the desired date.
 
-See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/customer.ts>
+See: [src/domain/customer.ts](./src/domain/customer.ts)
 
 ## Registered Waste Pickups
 
@@ -82,4 +82,4 @@ See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/cust
 > the service with the Customer and to prepare the Service Provider for the collection, ensuring that all parties are
 > informed and aligned with the scheduled service
 
-See: <https://github.com/seenons/seenons-be-assignment/blob/main/src/domain/registered_stream_pickup.ts>
+See: [src/domain/registered_waste_pickup.ts](./src/domain/registered_waste_pickup.ts)
